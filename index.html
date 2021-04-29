@@ -1,1 +1,641 @@
-Hello World
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <title>CodeKangaroo</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+
+    <script src="https://use.fontawesome.com/5fb7047e6d.js"></script>
+
+    <style>
+        html {
+            font-family: 'Open Sans', sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fff;
+            margin-left: 0;
+            margin-right: 0;
+            color: #333;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        p {
+            margin: 5px 0;
+            line-height: 25px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #888;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+        }
+
+        b,
+        strong {
+            font-weight: 400;
+        }
+
+
+
+        /* ========================================== */
+        /* HEADER UND NAVIGATION */
+
+        header {
+            position: relative;
+            margin: 30px auto 30px;
+            height: auto;
+            text-align: center;
+        }
+
+        .logo img {
+            display: block;
+            position: relative;
+            margin: auto;
+
+            max-width: 750px;
+            width: 70%;
+        }
+
+        nav {
+            z-index: 9999;
+            background-color: #fff;
+            margin-top: 40px;
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            padding: 3px 20px;
+            color: #888;
+        }
+
+        @media (max-width:450px) {
+            nav ul li {
+                width: 40%;
+                padding: 3px;
+            }
+        }
+
+        nav ul li a {
+            transition: color .5s ease;
+            font-weight: 400;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:active {
+            color: #333;
+        }
+
+
+        /* ========================================== */
+        /* BLOECKE / BEREICHE DER SEITE */
+
+        .portrait img {
+            display: block;
+            margin: auto;
+            width: 90%;
+        }
+
+        section {
+            position: relative;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        section:nth-child(even) {
+            background-color: #eef2f5;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        figure img {
+            max-width: 100%;
+        }
+
+        .multicolumn {
+            -webkit-perspective: 1;
+
+            /* Anzahl Spalten */
+            -webkit-column-count: 2;
+            /* Ch, Saf, And, BB  */
+            -moz-column-count: 2;
+            /* Fx */
+            column-count: 2;
+            /* IE 10, Op 11.1+ */
+
+            /* Abstand Spalten */
+            webkit-column-gap: 4em;
+            -moz-column-gap: 4em;
+            column-gap: 4em;
+        }
+
+        .one-column {
+            margin-bottom: 60px;
+        }
+
+        .one-column p {
+            margin-bottom: 1.5rem;
+        }
+
+
+        article {
+            overflow: hidden;
+            width: 50%;
+            display: table-cell;
+            padding-right: 50px;
+        }
+
+        article h4 {
+            margin: 10px 0;
+        }
+
+
+        figcaption {
+            display: inline-block;
+            line-height: 25px;
+            margin-top: 20px;
+            max-width: 75%;
+        }
+
+        figcaption span {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .callout {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 0 10px 30px;
+            width: auto;
+            max-width: 800px;
+        }
+
+        .callout a {
+            text-decoration: underline;
+        }
+
+        .callout a:hover {
+            color: #333;
+        }
+
+        .callout>h3 {
+            font-weight: 300;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .callout>ul {
+            padding-left: 1rem;
+        }
+
+        .callout>ul li {
+            margin: 5px 0;
+        }
+
+
+        .definition-list dt {
+            margin-bottom: 0.21rem;
+            font-weight: 400;
+        }
+
+        .definition-list dd {
+            margin: 0 0 1.5rem 0;
+        }
+
+        .secondary-heading {
+            font-weight: normal;
+            font-size: 15px;
+            color: #008038;
+        }
+
+        .competency-heading {
+            margin-top: 60px;
+            font-weight: 400;
+        }
+
+        /* Lebenslaufbild oben */
+        .cliped-image {
+            border-radius: 100%;
+            /* ff */
+
+            /* Clip-Path als Alternative
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            */
+        }
+
+        .zitat-image {
+            display: inline-block;
+            padding-right: 2px;
+            width: 45px;
+            height: 45px;
+            vertical-align: top;
+            line-height: 50px;
+            text-align: center;
+            background: #008038;
+        }
+
+        .zitat-image+p {
+            display: inline-block;
+            margin: -5px 0 0 20px;
+            width: 90%;
+        }
+
+        .section-arrow {
+            position: relative;
+            top: -20px;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #a0adb7;
+            border-radius: 50%;
+            line-height: 40px !important;
+            text-align: center;
+            color: #fff;
+        }
+
+        .back-to-top-button {
+            position: relative;
+            top: -40px;
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            background: #008038;
+            border-radius: 50%;
+            line-height: 70px !important;
+            text-align: center;
+            color: #fff;
+        }
+
+
+        /* ========================================== */
+        /* FOOTER */
+        footer {
+            clear: both;
+            position: relative;
+            margin: 60px auto 0;
+            width: auto;
+            height: 100px;
+            text-align: center;
+            background: #333;
+            color: #7d7d7d;
+        }
+
+        footer a:hover {
+            color: ;
+            text-decoration: underline;
+        }
+
+        footer .footer-copyright {
+            margin: -40px auto 0;
+            /* -40px --> gleicher Wert wie bei .back-to-top-button */
+            max-width: 800px;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        footer i.rotate {
+            /* Pfeil nach oben - rotieren */
+            -webkit-transform: rotate(180deg);
+            /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+            -ms-transform: rotate(180deg);
+            /* IE 9 */
+            transform: rotate(180deg);
+            /* IE 10, Fx 16+, Op 12.1+ */
+        }
+
+
+        /* ========================================== */
+        /* HELFER-KLASSEN */
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left !important;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .mt30 {
+            margin-top: 35px !important;
+        }
+
+        .motto {
+            margin-bottom: 50px;
+        }
+
+        .hr-small {
+            margin: -20px auto 30px;
+            width: 40px;
+            border: solid 1px #008038;
+        }
+
+        .font-licence {
+            margin-top: 10px;
+            font-size: 11px;
+        }
+
+        /* ========================================== */
+        /* ICONS */
+        .icons-social-media {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .icons-social-media>li {
+            display: inline-block;
+            padding: 0 7px 0 7px;
+            color: #888;
+        }
+
+        .icons-social-media>li i {
+            font-size: 20px;
+        }
+
+        .icons-social-media>li i:hover {
+            color: #333;
+            transition: color .5s ease;
+        }
+
+        .icon-location {
+            color: #008038;
+            font-size: 25px !important;
+        }
+
+        .icon-mail {
+            color: #008038;
+            font-size: 20px !important;
+        }
+
+
+        /* ========================================== */
+        /* MEDIA QUERIES FUER RESPONSIVE LAYOUT */
+
+        @media (max-width: 726px) {
+            .motto {
+                text-align: center;
+            }
+
+            .motto p {
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 641px) {
+            article {
+                display: block;
+                width: 100%;
+            }
+
+            figure {
+                margin: 30px auto 0;
+            }
+
+            figcaption {
+                display: block;
+                width: 55%;
+                margin: 0 auto;
+            }
+
+            .multicolumn {
+                webkit-column-gap: 2em;
+                -moz-column-gap: 2em;
+                column-gap: 2em;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ============================================================================================================================== -->
+    <!-- HEADER -->
+    <header id="header-start">
+        <div class="logo">
+            <picture>
+                <source srcset="https://i.imgur.com/zxitnS5.png" media="(max-width: 450px)">
+                <source srcset="https://i.imgur.com/k0hmbNh.png">
+                <img src="https://i.imgur.com/k0hmbNh.png" alt="logo">
+            </picture>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#block-1">INTRODUCTION</a></li>
+                <li><a href="#block-2">RESUME</a></li>
+                <li><a href="#block-3">PROJECTS</a></li>
+                <li><a href="#block-4">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ============================================================================================================================== -->
+    <!-- BLOCK 1 -->
+    <section id="block-1">
+        <i class="fa fa-chevron-down section-arrow" aria-hidden="true"></i>
+        <div class="callout text-left">
+            <h3>Introduction</h3>
+            <hr class="hr-small" />
+
+            <div class="motto">
+                <div class="zitat-image">
+                    <img src="https://www.united-domains.de/beispiel-vorlage/images/zitat.png" alt="icon-quote">
+                </div>
+                <p>
+                    "Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about
+                    what makes the universe exist. Be curious."
+                    <br>
+                    <i>- Stephen Hawking</i>
+                </p>
+            </div>
+
+            <h4 class="secondary-heading">ABOUT ME</h4>
+            <div class="one-column">
+                <p>
+                    Welcome to my website! My name is Paul, I live in Aachen (Germany) and I am currently pursuing a
+                    Bachelor's degree in Computational Engineering Science at RWTH Aachen University. I created
+                    CodeKangaroo to be able to earn some money on the side whenever I code something for someone.
+                </p>
+                <p>
+                    As part of my course at university, I have learned how to write advanced C++ code, and have come to
+                    appreciate C++ for its performance and structure. However, I have also programmed in Python or using
+                    MATLAB. For my degree I am attending or have attended lectures such as "Introduction to
+                    High-Performance Computing", "Software Engineering", "Machine Learning" and "Computer Vision", which
+                    help to improve my skills for this type of work. I have also worked as a teaching assistant for the
+                    subject "Introduction to Programming", which teaches C++ to beginners, and gets into all the nitty
+                    gritty details about pointers, templates and the like.
+                </p>
+                <p>
+                    With my choice of subjects and my current work as research assistant for the Institute for
+                    Automotive Engineering (<a href="www.ika.rwth-aachen.de">ika</a>) I am starting to specialise in
+                    autonomous driving, which is a subject I
+                    am highly interested in.
+                </p>
+            </div>
+
+            <h4 class="secondary-heading">EXPERIENCE</h4>
+            <div class="one-column">
+                <p>
+                    Because of my exchange year in Australia during my high school time, I was able to find a software
+                    engineering internship back in Australia after I had finished my high school degree. In three months
+                    of full-time programming I learned a lot about what it means to work in a team, how to adapt to
+                    existing work environments and how to come up with creative ways to add new functionality to
+                    software. As one of the only software developers in a company mainly focused on civil engineering, I
+                    had a lot of responsibility and creative freedom to develop some new solutions and small software
+                    tools for my coworkers.
+                </p>
+                <p>
+                    During my time at university I worked for the Chair for Computational Analysis of Technical Systems
+                    (CATS), for which I mostly maintained and improved some legacy FEM solver, written in FORTRAN. I was
+                    able to make a lot of improvements and refactor a lot of code, which in some cases was written long
+                    before I was even born. I gained experience in a collaborative coding environment, and was once
+                    again able to leave the code base in a much better state than I found it in.
+                </p>
+            </div>
+
+            <h4 class="competency-heading">MY SKILLS:</h4>
+
+            <ul>
+                <li>Proficiency in C++</li>
+                <li>Code maintenance & refactoring</li>
+                <li>Git version control</li>
+                <li>Knowledge of FORTRAN</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ============================================================================================================================== -->
+    <!-- BLOCK 2 -->
+    <section id="block-2">
+        <i class="fa fa-chevron-down section-arrow" aria-hidden="true"></i>
+        <div class="callout text-left">
+            <h3>Resume</h3>
+            <hr class="hr-small" />
+
+            <dl class="definition-list">
+                <dt>August 2014 – July 2015</dt>
+                <dd>Exchange Year in Dubbo (Australia) <br>
+                    with Rotary International</dd>
+
+                <dt>March 2017</dt>
+                <dd>Graduation from High School <br>
+                    Primary Subjects: Maths, Physics, English</dd>
+
+                <dt>April 2017 – June 2017</dt>
+                <dd>Internship at <a href="http://www.customsteel.com.au/cms/" target="_blank">Custom Steel Frames
+                        Dubbo</a> <br>
+                    Software Engineering & Maintenance <br>
+                    Migration of a large project to Git version control, developing small software assistance tools
+                    for CAD software</dd>
+
+                <dt>September 2017</dt>
+                <dd>Foundation of CodeKangaroo</dd>
+
+                <dt>Since October 2017</dt>
+                <dd>Enrollment at RWTH Aachen University <br>
+                    Computational Engineering Science B.Sc.</dd>
+
+                <dt>October 2018 – January 2019</dt>
+                <dt>October 2019 – January 2020</dt>
+                <dd>Teaching assistant <br>
+                    For the subject "Introduction to Programming" (C++)</dd>
+
+                <dt>March 2019 – March 2020</dt>
+                <dd>Research Assistant at the <a href="https://www.cats.rwth-aachen.de/cms/~nohs/CATS/?lidx=1"> Chair
+                    for Computational Analysis of Technical Systems (CATS) </a>. <br>
+                    Maintaining and improving a legacy FEM solver written in FORTRAN, <br>
+                    Fluid-Structure Interaction (FSI), Isogeometric Analysis (IGA), NURBS</dd>
+
+                <dt>Since April 2020</dt>
+                <dd>Research Assistant at the <a href="https://www.ika.rwth-aachen.de/de/">Institute for Automotive
+                    Engineering (ika)</a>. <br>
+                    In the Intelligence & Automated Driving department</dd>
+            </dl>
+        </div>
+    </section>
+
+    <!-- ============================================================================================================================== -->
+    <!-- BLOCK 3 -->
+    <section id="block-3">
+        <i class="fa fa-chevron-down section-arrow" aria-hidden="true"></i>
+        <div class="callout text-center">
+            <h3>Projects</h3>
+            <hr class="hr-small" />
+            <p>
+                <h4>DesignCAD Macros <br>
+                    for Custom Steel Frames</h4>
+                Continued development and maintenance of a large collection of CAD macros
+            </p>
+
+            <br class="clear" />
+        </div>
+    </section>
+
+    <!-- ============================================================================================================================== -->
+    <!-- BLOCK 4 -->
+    <section id="block-4">
+        <i class="fa fa-chevron-down section-arrow" aria-hidden="true"></i>
+        <div class="callout text-center">
+            <h3>Contact</h3>
+            <hr class="hr-small" />
+
+            <p>
+                <i class="fa fa-map-marker icon-location" aria-hidden="true"></i><br>
+                <span>CodeKangaroo Paul Orschau</span> <br>
+                <span>Kruppstraße 2</span> <br>
+                <span>52072 Aachen</span> <br>
+                <span>Germany</span> <br>
+            </p>
+            <p class="mt30">
+                <i class="fa fa-envelope-o icon-mail" aria-hidden="true"></i><br>
+                <span><a href="mailto:info@codekangaroo.com">info@codekangaroo.com</a></span>
+            </p>
+            <p class="mt30">
+                <i class="fa fa-phone icon-mail" aria-hidden="true"></i><br>
+                <span><a href="tel:+49-0151-54295016">+49 (0) 151 54295016</a></span>
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================================================================================== -->
+    <!-- FOOTER -->
+    <footer>
+        <a href="#header-start" class="back-to-top-button"><i class="fa fa-chevron-down rotate"
+                aria-hidden="true"></i></a>
+        <div class="footer-copyright">
+            &copy; Paul Orschau
+
+            <div class="font-licence">
+                <a href="http://fortawesome.github.com/Font-Awesome/">FontAwesome</a> icons licensed under <a
+                    href="http://scripts.sil.org/OFL_web"> SIL OFL</a>.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
